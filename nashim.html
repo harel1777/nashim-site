@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>סטודיו נשים - NAShIM</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@700&family=Montserrat:wght@700;900&family=Rubik&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Rubik', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #b67e58 0%, #d1b38b 100%);
+      color: #3e2f1c;
+      direction: rtl;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background-color: rgba(58, 45, 19, 0.95);
+      padding: 30px 30px 60px 30px;
+      text-align: center;
+      color: #f1e9de;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.6rem;
+      font-weight: 900;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      position: relative;
+      user-select: none;
+      overflow: visible;
+      z-index: 10;
+    }
+
+    /* הלוגו בפינה ימנית עליונה */
+    header .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 90px;
+      height: 90px;
+      background: url('NASHIM (1).png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.25;
+      pointer-events: none;
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+    }
+
+    /* טקסט הכותרת עם העברית והאנגלית */
+    header .title-hebrew {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: 5px;
+      font-size: 3.6rem;
+      line-height: 1.1;
+    }
+    header .title-english {
+      font-family: 'Assistant', sans-serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: #d1b38b;
+      letter-spacing: 3px;
+      margin-top: 6px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 60px auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    main h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: #5b4326;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+    }
+
+    .about-text {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #4a3a1c;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* סדנאות */
+    .workshops {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .workshop-card {
+      background: #d1b38b;
+      border-radius: 15px;
+      width: 280px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .workshop-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 3px solid #7b5830;
+    }
+
+    .workshop-card .title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #5b4326;
+      padding: 15px 15px 5px 15px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .workshop-card .desc {
+      font-size: 1rem;
+      padding: 0 15px 15px 15px;
+      color: #4a3a1c;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* מיקום הסטודיו */
+    .location {
+      margin-bottom: 50px;
+      text-align: center;
+      color: #5b4326;
+    }
+
+    .location h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .location p {
+      font-size: 1.1rem;
+      margin: 4px 0;
+    }
+
+    .location iframe {
+      margin-top: 15px;
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* יצירת קשר */
+    .contact-section {
+      max-width: 450px;
+      margin: 0 auto 30px auto;
+      background-color: #f1e9de;
+      border-radius: 18px;
+      padding: 30px 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      color: #3e2f1c;
+    }
+
+    .contact-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 1.2px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #cfa86a;
+      border-radius: 12px;
+      font-family: 'Rubik', sans-serif;
+      font-size: 1rem;
+      color: #5b4326;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #a07b3a;
+      background-color: #fff8e1;
+    }
+
+    .contact-form button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #a07b3a;
+      color: #f1e9de;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 14px 0;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #7b5830;
+    }
+
+    /* קישור לאינסטגרם */
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      color: #5b4326;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .instagram-link:hover {
+      color: #a07b3a;
+      text-decoration: underline;
+    }
+
+    .instagram-link svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    /* רספונסיב */
+    @media(max-width: 650px) {
+      main {
+        padding: 20px 25px;
+        margin: 20px auto 40px auto;
+      }
+
+      .workshops {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .workshop-card {
+        width: 90%;
+      }
+
+      .contact-section {
+        width: 90%;
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-hebrew">סטודיו נשים</div>
+    <div class="title-english">NAShIM</div>
+    <div class="logo" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="about" aria-label="אודות הסטודיו">
+      <h2>אודות הסטודיו</h2>
+      <p class="about-text">
+        סטודיו נשים - קהילה מעצימה של נשים, שמקיימת סדנאות, מפגשים והרצאות במגוון נושאים יצירתיים והעצמתיים.<br />
+        המיקום שלנו: אלומות 10, גן התעשייה עומר.<br />
+        מוזמנות להצטרף ולהיות חלק מחוויה נשית ייחודית.
+      </p>
+    </section>
+
+    <section class="workshops" aria-label="סדנאות אחרונות">
+      <article class="workshop-card" tabindex="0" aria-label="סדנת הרוקחות הטבעית">
+        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="סדנת הרוקחות הטבעית" />
+        <div class="title">סדנת הרוקחות הטבעית</div>
+        <div class="desc">בהובלת אנה מ-sabonana בה הכנו מוצרי טיפוח טבעיים איכותיים!</div>
+      </article>
+
+      <article class="workshop-card" tabindex="0" aria-label="סדנת שזירה אביבית">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="סדנת שזירה אביבית" />
+        <div class="title">סדנת שזירה אביבית</div>
+        <div class="desc">בהובלת השוזרת מילאן. חגיגה של צבעים וריחות!</div>
+      </article>
+
+      <article class="workshop-card" tabindex="0" aria-label="סדנת בטון פולימרי">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="סדנת בטון פולימרי" />
+        <div class="title">סדנת בטון פולימרי</div>
+        <div class="desc">מפגש מדהים של נשים, חיבור עוצמתי בין נשים, שיח, אנרגיות טובות והמון יצירה ססגונית ועשירה!</div>
+      </article>
+    </section>
+
+    <section class="location" aria-label="מיקום הסטודיו">
+      <h3>מיקום הסטודיו</h3>
+      <p>אלומות 10, גן התעשייה עומר, עומר, ישראל</p>
+      <p>טלפון: 050-1234567</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.7519809838686!2d34.855796915000575!3d31.266780781517507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502e6e7e2542d35%3A0x8a04971f5fdf6e0b!2z15HXkNeZ15Qg15HXqNeV15nXmdeZINeV15Qg15XXmdeV15zXqNeV15nXkQ!5e0!3m2!1she!2sil!4v1691574935270!5m2!1she!2sil"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="מפת גן התעשייה עומר"
+      ></iframe>
+    </section>
+
+    <section class="contact-section" id="contact" tabindex="0" aria-label="טופס יצירת קשר">
+      <h2>צרו קשר</h2>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/meozpypn" method="POST" novalidate>
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" name="name" placeholder="הכנס שם מלא" required autocomplete="name" />
+
+        <label for="email">אימייל</label>
+        <input type="email" id="email" name="email" placeholder="הכנס אימייל" required autocomplete="email" />
+
+        <label for="message">הודעה</label>
+        <textarea id="message" name="message" rows="4" placeholder="כתוב את ההודעה שלך כאן..."></textarea>
+
+        <button type="submit" aria-label="שלח הודעה">שלח</button>
+      </form>
+
+      <a class="instagram-link" href="https://www.instagram.com/nashim_yn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="עקבו אחרינו באינסטגרם">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm7.5 1a1 1 0 110 2 1 1 0 010-2zm-4.25 2.25a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+        עקבו אחרינו באינסטגרם
+      </a>
+    </section>
+  </main>
+</body>
+</html>
